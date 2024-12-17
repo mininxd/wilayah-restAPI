@@ -5,6 +5,13 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 
+app.get('/', (req, res) => {
+res.send({
+'/:nama_wilayah':'mendapatkan kode wilayah',
+'/kode/:kode_wilayah':'mendapatkan nama wilayah'
+	})
+})
+
 app.get('/:wilayah', async (req, res) => {
   try {
     const wilayah = await prisma.wilayah.findMany({
@@ -20,7 +27,7 @@ app.get('/:wilayah', async (req, res) => {
     if (wilayah && wilayah.length > 0) {
       res.send(wilayah[0].kode);
     } else {
-      res.send("No data found");
+      res.send("Data tidak ditemukan");
     }
   } catch (e) {
     res.send(e + "err");
@@ -41,7 +48,7 @@ app.get('/kode/:kode', async (req, res) => {
     if (wilayah && wilayah.length > 0) {
       res.send(wilayah[0].nama);
     } else {
-      res.send("No data found");
+      res.send("Data tidak ditemukan");
     }
   } catch (e) {
     res.send(e + "err");
