@@ -26,4 +26,5 @@ setelah kamu deploy ke vercel, atur bagian variablesnya pada menu settings, nah 
 
 
 <hr>
+
 _Saya ngetik ini lebih capek daripada ngodingnya_ xD
