@@ -20,7 +20,10 @@ bagian setup prisma ini cukup edit `.env` saja yang sudah saya sediakan pada .en
 untuk mendapatkan DATABASE_URL dan DIRECT_URL kamu bisa cari di Supabase, pada tombol `Connect` diatas tabel
 
 ### Tips
-kalau kamu mau git push jangan di ikutkan file `.env`nya, walau file pada repository sudah dihapus jejaknya masih tetinggal, pada commit terakhir, karena kamu tidak perlu file `.env` pada github, karena variable ini bisa kamu taruh di vercel nantinya,
+kalau kamu mau git push jangan di ikutkan file `.env`nya, walau file pada repository sudah dihapus jejaknya masih tetinggal pada commit terakhir, karena kamu tidak perlu file `.env` pada github, karena variable ini bisa kamu taruh di vercel nantinya,
+
 setelah kamu deploy ke vercel, atur bagian variablesnya pada menu settings, nah disini kamu bisa upload file `.env` tersebut, nyalakan `"sensitive"` saat upload, biar data kamu aman
 
+
+<hr>
 _Saya ngetik ini lebih capek daripada ngodingnya_ xD
