@@ -9,8 +9,7 @@ app.get('/', (req, res) => {
 res.send({
 '/:nama_wilayah':'mendapatkan kode wilayah (Kecamatan & Desa)',
 '/adm2/:nama_wilayah':'mendapatkan kode wilayah (Provinsi & Kabupaten)',
-'/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)',
-'/adm2/kode/:kode_wilayah':'mendapatkan nama wilayah (Provinsi & Kabupaten)'
+'/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)'
 	})
 })
 
@@ -61,27 +60,6 @@ app.get('/kode/:kode', async (req, res) => {
     const wilayah = await prisma.wilayah.findMany({
       where: { 
         kode: req.params.kode,
-      },
-      select: {
-        kode: true,
-        nama: true,
-      },
-    });
-
-    if (wilayah && wilayah.length > 0) {
-      res.send(wilayah[0].nama);
-    } else {
-      res.send("Data tidak ditemukan");
-    }
-  } catch (e) {
-    res.send(e + "err");
-  }
-});
-app.get('/adm2/kode/:kode', async (req, res) => {
-  try {
-    const wilayah = await prisma.wilayah.findMany({
-      where: { 
-        kode: req.params.kode.toUpperCase(),
       },
       select: {
         kode: true,
