@@ -30,7 +30,7 @@ app.get('/:wilayah', async (req, res) => {
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
-    res.send(e + "err");
+    res.send(e);
   }
 });
 app.get('/kode/:kode', async (req, res) => {
