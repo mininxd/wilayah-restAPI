@@ -10,8 +10,8 @@ app.get('/', (req, res) => {
 res.send({
 '/:nama_wilayah':'mendapatkan kode wilayah (Kecamatan & Desa)',
 '/adm2/:nama_wilayah':'mendapatkan kode wilayah (Provinsi & Kabupaten)',
-'/lokasi':'Mendapatkan info lokasi lat & long',
-'/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)'
+'/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)',
+'/lokasi':'Mendapatkan info lokasi lengkap (adm1, adm2, adm3, adm4, prov, kab, kec, desa, lat, long, timezone)'
 	})
 })
 app.get('/lokasi', async (req, res) => {
