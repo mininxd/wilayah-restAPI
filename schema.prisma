@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,8 +8,21 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-
 model wilayah {
   kode   String   @id
   nama   String?
+}
+
+model wilayah_level_1_2 {
+  kode      String   @id
+  nama      String?
+  ibukota   String?
+  lat       Float?
+  lng       Float?
+  elv       Float    @default(0)
+  tz        Int?
+  luas      Float?
+  penduduk  BigInt?
+  paths     String?
+  status    Int?
 }
