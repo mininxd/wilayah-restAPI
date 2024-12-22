@@ -34,7 +34,7 @@ try {
     nama: koordinat[0].nama,
     ibukota: koordinat[0].ibukota,
     lat: koordinat[0].lat,
-    long: koordinat[0].lng,
+    lon: koordinat[0].lng,
     elv: koordinat[0].elv,
     tz: koordinat[0].tz,
     luas: koordinat[0].luas,
