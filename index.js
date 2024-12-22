@@ -38,7 +38,7 @@ app.get('/:wilayah', async (req, res) => {
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
-    res.send(e);
+    res.send("Data tidak ditemukan");
   }
 });
 app.get('/adm2/:wilayah', async (req, res) => {
@@ -59,7 +59,7 @@ app.get('/adm2/:wilayah', async (req, res) => {
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
-    res.send(e);
+    res.send("Data tidak ditemukan");
   }
 });
 
@@ -85,7 +85,7 @@ app.get('/lokasi/:wilayah', async (req, res) => {
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
-    res.send(e);
+    res.send("Data tidak ditemukan");
   }
 });
 app.get('/kode/:kode', async (req, res) => {
@@ -106,7 +106,7 @@ app.get('/kode/:kode', async (req, res) => {
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
-    res.send(e + "err");
+    res.send("Data tidak ditemukan");
   }
 });
 
