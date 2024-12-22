@@ -1,22 +1,27 @@
 import express from 'express';
-import axios from 'axios';
+import coordinates from './coordinates.js';
 const app = express();
 app.use(express.json());
+app.use('/koordinat', coordinates);
+
+import axios from 'axios';
+
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-
 app.get('/', (req, res) => {
 res.send({
+'info':'data sesuai permendagri tahun 2019',
 '/:nama_wilayah':'mendapatkan kode wilayah (Kecamatan & Desa)',
 '/adm2/:nama_wilayah':'mendapatkan kode wilayah (Provinsi & Kabupaten)',
 '/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)',
-'/lokasi':'Mendapatkan info lokasi lengkap (adm1, adm2, adm3, adm4, prov, kab, kec, desa, lat, long, timezone)'
+'/lokasi':'Mendapatkan info lokasi lengkap (adm1, adm2, adm3, adm4, prov, kab, kec, desa, lat, long, timezone)',
+'/koordinat':'Mendapatkan informasi koordinat administrasi level 2 meliputi (kode, nama, ibukota, lat, long, elv, tz, luas, path)'
 	})
 })
 app.get('/lokasi', async (req, res) => {
   res.send({
-    "/nama_wilayah":"pakailah nama desa atau kode adm4 untuk lebih akurat"
+    "/:nama_wilayah":"pakailah nama desa atau kode adm4 untuk lebih akurat"
   })
 });
 
