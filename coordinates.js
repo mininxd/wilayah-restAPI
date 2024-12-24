@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 router.get('/:kode', async (req, res) => {
   const admDots = (str) => (str.match(/\./g) || []).length;
-  if(admDots(req.params.kode) === 1) {
+  if(admDots(req.params.kode) <= 1) {
 try {
   const koordinat = await prisma.wilayah_level_1_2.findMany({
       where: { 
