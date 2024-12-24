@@ -14,7 +14,7 @@ res.send({
 'info':'data sesuai permendagri tahun 2019',
 '/:nama_wilayah':'mendapatkan kode wilayah (Kecamatan & Desa)',
 '/adm2/:nama_wilayah':'mendapatkan kode wilayah (Provinsi & Kabupaten)',
-'/kode/:kode_wilayah':'mendapatkan nama wilayah (Kecamatan & Desa)',
+'/kode/:kode_wilayah':'mendapatkan nama wilayah',
 '/lokasi':'Mendapatkan info lokasi lengkap (adm1, adm2, adm3, adm4, prov, kab, kec, desa, lat, long, timezone)',
 '/koordinat':'Mendapatkan informasi koordinat administrasi level 2 meliputi (kode, nama, ibukota, lat, long, elv, tz, luas, path)'
 	})
