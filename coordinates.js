@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 })
 router.get('/:kode', async (req, res) => {
   const admDots = (str) => (str.match(/\./g) || []).length;
-  if(admDots(req.params.kode) <= 1) {
+  if(admDots(req.params.kode) === 1) {
 try {
   const koordinat = await prisma.wilayah_level_1_2.findMany({
       where: { 
@@ -41,8 +41,33 @@ try {
     path: koordinat[0].paths,
     });
 } catch(e) {
-  res.send(e)
+  res.send("Data tidak ditemukan")
 }
+} else if(admDots(req.params.kode) === 0) {
+  try {
+  const subKoordinat = await prisma.wilayah_level_1_2.findMany({
+    where: {
+      kode: {
+        startsWith: `${req.params.kode}.`
+      }
+    },
+    select: {
+      kode: true,
+      nama: true,
+      paths: true
+    }
+  });
+
+  if (subKoordinat.length === 0) {
+    res.send("Data tidak ditemukan");
+  } else {
+    res.send(subKoordinat);
+  }
+} catch (e) {
+  res.send("Data tidak ditemukan");
+}
+
+  
 } else {
   res.send("Data tidak ditemukan")
 }
