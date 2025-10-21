@@ -9,20 +9,26 @@ datasource db {
 }
 
 model wilayah {
-  kode   String   @id
+  kode   String @id
   nama   String?
+
+  @@map("wilayah")
+  @@schema("wilayah_pemendagri_2019")
 }
 
-model wilayah_level_1_2 {
-  kode      String   @id
+model lokasi {
+  kode      String  @id
   nama      String?
   ibukota   String?
   lat       Float?
   lng       Float?
-  elv       Float    @default(0)
+  elv       Float   @default(0)
   tz        Int?
   luas      Float?
   penduduk  BigInt?
   paths     String?
   status    Int?
+
+  @@map("lokasi")
+  @@schema("wilayah_pemendagri_2019")
 }
