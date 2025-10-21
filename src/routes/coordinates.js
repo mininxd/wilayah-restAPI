@@ -4,10 +4,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 
-router.get('/', (req, res) => {
-  res.send({"/:kode":"kode adm2"})
-})
-router.get('/:kode', async (req, res) => {
+router.get('/', async (req, res) => {
   const admDots = (str) => (str.match(/\./g) || []).length;
   if(admDots(req.params.kode) === 1) {
 try {
