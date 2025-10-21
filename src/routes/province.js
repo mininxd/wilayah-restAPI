@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
     })
     res.send({
   status: "success",
-  message: "Data seluruh provinsi Indonesia (Permendagri 2019)",
   available_endpoints: {
     kabupaten: "/kab/:kodeProvinsi",
     kecamatan: "/kec/:kodeKabupaten",

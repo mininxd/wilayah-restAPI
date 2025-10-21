@@ -19,10 +19,23 @@ const prisma = new PrismaClient()
 
 app.get('/', (req, res) => {
   res.send({
-    'info':'data sesuai permendagri tahun 2019',
-    '/kode/:kode_wilayah':'mendapatkan nama wilayah',
-    '/koordinat':'Mendapatkan informasi koordinat administrasi level 2 meliputi (kode, nama, ibukota, lat, long, elv, tz, luas, path)'
-  })
+  status: "success",
+  message: "Data seluruh provinsi Indonesia (Permendagri 2019)",
+  source_code: "https://github.com/mininxd/wilayah-restAPI",
+  available_endpoints: 
+    [{
+      path: "/kode/:kode_wilayah",
+      description: "Mendapatkan nama wilayah berdasarkan kodenya."
+    },
+    {
+      path: "/koordinat/:kodeKab",
+      description: "Mendapatkan informasi koordinat kabupaten, meliputi: (kode, nama, ibukota, lat, long, elv, tz, luas, path)."
+    },
+    {
+      path: "/prov",
+      description: "Mendapatkan daftar seluruh provinsi, kabupaten, kecamatan, desa."
+    }]
+});
 })
 
 app.get('/:kode', async (req, res) => {
