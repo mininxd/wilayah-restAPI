@@ -54,7 +54,6 @@ app.get('/:kode', async (req, res) => {
       console.log(wilayah[0].nama);
       res.send(wilayah[0].nama);
     } else {
-      console.log(wilayah[0].nama);
       res.send("Data tidak ditemukan");
     }
   } catch (e) {
