@@ -25,7 +25,15 @@ router.get('/:kodeKab', async (req, res) => {
     if (subdistricts.length === 0) {
       res.status(404).send('Data kecamatan tidak ditemukan')
     } else {
-      res.send(subdistricts)
+      let obj = [];
+      for(let i = 0; i < subdistricts.length; i++) {
+      obj.push({
+        kode: subdistricts[i].kode,
+        kode_2: subdistricts[i].kode.replaceAll(".", ""),
+        nama: subdistricts[i].nama
+      })
+      }
+      res.send(obj);
     }
   } catch (e) {
     console.log('Prisma error (subdistrict):', e)

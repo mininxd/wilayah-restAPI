@@ -25,7 +25,15 @@ router.get('/:kodeProv', async (req, res) => {
     if (regencies.length === 0) {
       res.status(404).send('Data kabupaten/kota tidak ditemukan')
     } else {
-      res.send(regencies)
+      let obj = [];
+      for(let i = 0; i < regencies.length; i++) {
+      obj.push({
+        kode: regencies[i].kode,
+        kode_2: regencies[i].kode.replaceAll(".", ""),
+        nama: regencies[i].nama
+      })
+      }
+      res.send(obj);
     }
   } catch (e) {
     console.log('Prisma error (regency):', e)
