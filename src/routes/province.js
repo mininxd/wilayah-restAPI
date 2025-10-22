@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     kecamatan: "/kec/:kodeKabupaten",
     desa: "/desa/:kodeKecamatan"
   },
-  data: provinsi 
+  data: provinsi
 });
 
   } catch (e) {

@@ -26,7 +26,7 @@ router.get('/:kodeKec', async (req, res) => {
   res.send(all)
   } catch (e) {
     console.log('Prisma error (subdistrict):', e)
-    res.status(500).send('Gagal mengambil data kecamatan')
+    res.status(500).send('Gagal mengambil data desa')
   }
 })
 
