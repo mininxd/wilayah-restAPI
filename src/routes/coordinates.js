@@ -38,7 +38,7 @@ try {
     path: koordinat[0].paths,
     });
 } catch(e) {
-  res.send("Data tidak ditemukan")
+  res.status(404).send("Data tidak ditemukan")
 }
 } else if(admDots(req.params.kode) === 0) {
   try {
