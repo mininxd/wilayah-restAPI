@@ -63,7 +63,7 @@ router.get('/:query', async (req, res) => {
 
       return {
         kode: d.kode,
-        addresses: `${provNama}, ${kabNama}, ${kecNama}, ${d.nama}`,
+        nama: `${provNama}, ${kabNama}, ${kecNama}, ${d.nama}`,
       };
     });
 
