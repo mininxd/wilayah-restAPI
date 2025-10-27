@@ -28,7 +28,7 @@ router.get('/:query', async (req, res) => {
       orderBy: {
         kode: 'asc',
       },
-      take: 10,
+      take: 25,
     });
 
     const validDesa = desa.filter((d) => d.kode.split('.').length === 4);
@@ -63,7 +63,12 @@ router.get('/:query', async (req, res) => {
 
       return {
         kode: d.kode,
+        kode_2: d.kode.replace(/\./g, ''),
         nama: `${provNama}, ${kabNama}, ${kecNama}, ${d.nama}`,
+        provinsi: provNama,
+        kota: kabNama,
+        kecamatan: kecNama,
+        desa: d.nama,
       };
     });
 
