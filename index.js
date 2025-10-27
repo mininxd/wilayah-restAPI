@@ -36,6 +36,10 @@ app.get('/', (req, res) => {
     {
       path: "/prov",
       description: "Mendapatkan daftar seluruh provinsi, kabupaten, kecamatan, desa."
+    },
+    {
+      path: "/search/{query}",
+      description: "Mencari desa/kelurahan berdasarkan nama."
     }]
 });
 })

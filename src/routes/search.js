@@ -4,13 +4,13 @@ import { PrismaClient } from '@prisma/client';
 const router = Router();
 const prisma = new PrismaClient();
 
-router.get('/', async (req, res) => {
-  const { q } = req.query;
+router.get('/:query', async (req, res) => {
+  const { query } = req.params;
 
-  if (!q) {
+  if (!query) {
     return res.status(400).json({
       status: 'error',
-      message: 'Missing search query parameter "q"',
+      message: 'Missing search query',
     });
   }
 
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const desa = await prisma.wilayah.findMany({
       where: {
         nama: {
-          contains: q,
+          contains: query,
           mode: 'insensitive',
         },
         kode: {
@@ -28,6 +28,7 @@ router.get('/', async (req, res) => {
       orderBy: {
         kode: 'asc',
       },
+      take: 10,
     });
 
     const validDesa = desa.filter((d) => d.kode.split('.').length === 4);
