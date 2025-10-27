@@ -4,6 +4,7 @@ import province from './src/routes/province.js';
 import regency from './src/routes/regency.js';
 import subDistrict from './src/routes/subDistrict.js';
 import distric from './src/routes/distric.js';
+import search from './src/routes/search.js';
 const app = express();
 app.use(express.json());
 app.use('/koordinat', coordinates);
@@ -12,6 +13,7 @@ app.use('/kab', regency);
 app.use('/kec', subDistrict);
 app.use('/des', distric);
 app.use('/desa', distric);
+app.use('/search', search);
 
 import axios from 'axios';
 import { PrismaClient } from '@prisma/client'
