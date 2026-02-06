@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public"]
+}
+
+model wilayah {
+  kode String  @id
+  nama String?
+
+  @@map("wilayah")
+  @@schema("public")
+}
+
+model wilayah_level_1_2 {
+  kode     String  @id
+  nama     String?
+  ibukota  String?
+  lat      Float?
+  lng      Float?
+  elv      Float?  @default(0)
+  tz       Int?
+  luas     Float?
+  penduduk BigInt?
+  paths    String?
+  status   Int?
+
+  @@map("wilayah_level_1_2")
+  @@schema("public")
+}
